@@ -15,11 +15,13 @@ function App() {
     e.preventDefault()
     dispatch({type: 'ADD', payload: item})
   }
-
+  const complete = (id) => {
+    dispatch({type: 'COMPLETE', payload: id})
+  }
   return (
     <div className="App">
       {state.items.map(el => (
-        <p key={el.id}>{el.item}</p>
+        <p onClick={() => complete(el.id)} className={el.completed ? 'cross' : 'not'} key={el.id}>{el.item}</p>
       ))}
       <ToDoList />
       <form onSubmit={add}>

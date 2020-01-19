@@ -11,12 +11,18 @@ export const reducer = (state, action) => {
         case 'ADD':
             return {
                 ...state,
-                items: [...state.items,{
+                items: [...state.items,
+                    {
                     item: action.payload,
                     completed: false,
                     id: Date.now()
                 }]
             }
+            case 'COMPLETE':
+                let arr = state.items.map(el => el.id === action.payload ? {...el, completed: !el.completed} : el)
+                return {...state,
+                    items: arr
+                };
         default:
             return state;
     }

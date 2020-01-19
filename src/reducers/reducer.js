@@ -8,8 +8,15 @@ export const initialState = {
 
 export const reducer = (state, action) => {
     switch (action.type) {
-        case 'ADD_ITEM':
-            return state
+        case 'ADD':
+            return {
+                ...state,
+                items: [...state.items,{
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now()
+                }]
+            }
         default:
             return state;
     }

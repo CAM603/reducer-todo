@@ -23,6 +23,11 @@ export const reducer = (state, action) => {
                 return {...state,
                     items: arr
                 };
+            case 'DELETE':
+                let filteredArr = state.items.filter(el => el.completed === false)
+                return {...state,
+                    items: filteredArr
+                }
         default:
             return state;
     }

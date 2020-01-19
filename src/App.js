@@ -18,6 +18,9 @@ function App() {
   const complete = (id) => {
     dispatch({type: 'COMPLETE', payload: id})
   }
+  const deleteComplete = () => {
+    dispatch({type: 'DELETE'})
+  }
   return (
     <div className="App">
       {state.items.map(el => (
@@ -32,6 +35,7 @@ function App() {
         />
         <button>Add</button>
       </form>
+      <button onClick={deleteComplete}>Delete</button>
     </div>
   );
 }

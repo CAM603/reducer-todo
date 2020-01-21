@@ -9,7 +9,8 @@ import TodoForm from './components/TodoForm';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [item, setItem] = useState('')
+  const [item, setItem] = useState('');
+  const [adding, setAdding] = useState(false);
 
   const handleChange = (e) => {
     setItem(e.target.value)
@@ -25,11 +26,17 @@ function App() {
   const deleteComplete = () => {
     dispatch({type: 'DELETE'})
   }
+  const toggleForm = () => {
+    setAdding(!adding)
+  }
+
+  const addForm = adding ? <TodoForm add={add} item={item} handleChange={handleChange}/> : null;
+
   return (
     <div className="App">
-      <Navigation />
+      <Navigation toggleForm={toggleForm}/>
       <TodoList todos={state.todos} complete={complete}/>
-      <TodoForm add={add} item={item} handleChange={handleChange}/>
+      {addForm}
       <button onClick={deleteComplete}>Delete</button>
       <GlobalStyle />
     </div>

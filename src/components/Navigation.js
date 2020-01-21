@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Navigation = () => {
+const Navigation = ({toggleForm}) => {
     return (
         <div>
             <p>Date Here</p>
-            <p>Add</p>
+            <button onClick={() => toggleForm()}>Add</button>
         </div>
     )
 }

@@ -1,10 +1,16 @@
 import React from 'react';
+import Todo from './Todo';
 
-const ToDoList = () => {
+const TodoList = ({todos, complete}) => {
 
     return (
-        <div>Todos</div>
-    )
+        <div>
+            {todos.map(todo => (
+                <Todo todo={todo} complete={complete}/>
+            ))}
+        </div>
+        )
 }
 
-export default ToDoList;
+
+export default TodoList;

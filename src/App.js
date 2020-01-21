@@ -2,7 +2,10 @@ import React, { useReducer, useState } from 'react';
 import { initialState, reducer } from './reducers/reducer';
 
 import './App.css';
-import ToDoList from './components/ToDoList';
+import { GlobalStyle } from './styles/GlobalStyle';
+import Navigation from './components/Navigation';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -14,6 +17,7 @@ function App() {
   const add = (e) => {
     e.preventDefault()
     dispatch({type: 'ADD', payload: item})
+    setItem('')
   }
   const complete = (id) => {
     dispatch({type: 'COMPLETE', payload: id})
@@ -23,19 +27,11 @@ function App() {
   }
   return (
     <div className="App">
-      {state.items.map(el => (
-        <p onClick={() => complete(el.id)} className={el.completed ? 'cross' : 'not'} key={el.id}>{el.item}</p>
-      ))}
-      <ToDoList />
-      <form onSubmit={add}>
-        <label>Add a To Do</label>
-        <input
-        onChange={handleChange}
-        value={item}
-        />
-        <button>Add</button>
-      </form>
+      <Navigation />
+      <TodoList todos={state.todos} complete={complete}/>
+      <TodoForm add={add} item={item} handleChange={handleChange}/>
       <button onClick={deleteComplete}>Delete</button>
+      <GlobalStyle />
     </div>
   );
 }

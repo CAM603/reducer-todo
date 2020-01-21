@@ -45,8 +45,9 @@ function App() {
           <TodoList 
           todos={state.todos} 
           complete={complete} 
-          deleteTodo={deleteTodo}/>
-          <button onClick={deleteComplete}>Delete Completed</button>
+          deleteTodo={deleteTodo}
+          deleteComplete={deleteComplete}
+          />
         </div>
       </div>
       <GlobalStyle />

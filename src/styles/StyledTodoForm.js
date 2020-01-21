@@ -16,6 +16,7 @@ export const StyledTodoForm = styled.div`
             width: 300px;
             height: 20px;
             padding-right: 50px;
+            outline: none;
         }
         
         input[type="submit"] {

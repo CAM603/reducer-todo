@@ -1,11 +1,12 @@
 import React from 'react';
+import { StyledNav } from '../styles/StyledNav';
 
-const Navigation = ({toggleForm}) => {
+const Navigation = ({toggleForm, adding}) => {
     return (
-        <div>
+        <StyledNav>
             <p>Date Here</p>
-            <button onClick={() => toggleForm()}>Add</button>
-        </div>
+            <button onClick={() => toggleForm()}>{adding ? '' : '+'}</button>
+        </StyledNav>
     )
 }
 

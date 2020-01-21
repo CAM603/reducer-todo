@@ -1,18 +1,19 @@
 import React from 'react';
+import { StyledTodoForm } from '../styles/StyledTodoForm';
 
 const TodoForm = ({add, handleChange, item}) => {
 
     return (
-        <div>
+        <StyledTodoForm>
             <form onSubmit={add}>
-                <label>Add a To Do</label>
                 <input
+                type="text"
                 onChange={handleChange}
                 value={item}
                 />
-                <button>Add</button>
+                <input type="submit"/>
             </form>
-        </div>
+        </StyledTodoForm>
     )
 }
 

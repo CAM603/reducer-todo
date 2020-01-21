@@ -19,27 +19,38 @@ function App() {
     e.preventDefault()
     dispatch({type: 'ADD', payload: item})
     setItem('')
+    setAdding(!adding)
   }
   const complete = (id) => {
     dispatch({type: 'COMPLETE', payload: id})
   }
   const deleteComplete = () => {
-    dispatch({type: 'DELETE'})
+    dispatch({type: 'DELETE_COMPLETE'})
   }
   const toggleForm = () => {
     setAdding(!adding)
+  }
+  const deleteTodo = (id) => {
+    dispatch({type: 'DELETE_TODO', payload: id})
   }
 
   const addForm = adding ? <TodoForm add={add} item={item} handleChange={handleChange}/> : null;
 
   return (
-    <div className="App">
-      <Navigation toggleForm={toggleForm}/>
-      <TodoList todos={state.todos} complete={complete}/>
-      {addForm}
-      <button onClick={deleteComplete}>Delete</button>
+    <>
+      <div className="app-container">
+        <div className="app">
+          <Navigation toggleForm={toggleForm} adding={adding}/>
+          {addForm}
+          <TodoList 
+          todos={state.todos} 
+          complete={complete} 
+          deleteTodo={deleteTodo}/>
+          <button onClick={deleteComplete}>Delete Completed</button>
+        </div>
+      </div>
       <GlobalStyle />
-    </div>
+    </>
   );
 }
 

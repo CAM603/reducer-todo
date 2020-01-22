@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyledTodo } from '../styles/StyledTodo';
 import { StyledButton } from '../styles/StyledButton';
+import { ContextObj } from '../App';
 
-const Todo = ({todo, complete, deleteTodo}) => {
+const Todo = ({todo}) => {
+    
+    const { value } = useContext(ContextObj)
+    const [state, dispatch] = value;
 
+    const complete = (id) => {
+        dispatch({type: 'COMPLETE', payload: id})
+    }
+    const deleteTodo = (id) => {
+        dispatch({type: 'DELETE_TODO', payload: id})
+    }
+    
     return (
         <StyledTodo>
             <p>{todo.completed ? '[✓]' : '[ ]'}</p>
@@ -15,7 +26,7 @@ const Todo = ({todo, complete, deleteTodo}) => {
             color="red"
             onClick={() => deleteTodo(todo.id)}>Delete</StyledButton> :
             <StyledButton
-            color="orange"
+            color="darkorange"
             >Edit</StyledButton>}
         </StyledTodo>
     )

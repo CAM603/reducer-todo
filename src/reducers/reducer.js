@@ -19,7 +19,7 @@ export const reducer = (state, action) => {
                         todo: action.payload,
                         completed: false,
                         id: Date.now()
-                    }]
+                    }],
                 }
             }
             case 'COMPLETE':

@@ -11,7 +11,7 @@ import TodoForm from './components/TodoForm';
 export const ContextObj = createContext();
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState); //Todo: setup localStorage
   const [item, setItem] = useState('');
   const [adding, setAdding] = useState(false);
 

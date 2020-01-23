@@ -1,9 +1,32 @@
 export const initialState = {
-    todos: [{
+    todos: [
+        {
         todo: 'Learn about reducers',
         completed: false,
-        id: 3892987589
-    }],
+        id: 0
+    },
+        {
+        todo: 'Learn about Redux',
+        completed: false,
+        id: 1
+    },
+        {
+        todo: 'Learn about async reducers',
+        completed: false,
+        id: 2
+    },
+        {
+        todo: 'Create new project',
+        completed: false,
+        id: 3
+    },
+        {
+        todo: 'Eat dinner',
+        completed: false,
+        id: 4
+    }
+],
+    
 }
 
 export const reducer = (state, action) => {

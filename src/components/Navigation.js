@@ -21,11 +21,11 @@ const Navigation = (props) => {
     return (
         <StyledNav>
             <p>{today}</p>
-            <StyledButton
-            color="green"
+            <p
+            className="add"
             onClick={() => toggleForm()}>
-                {adding ? '' : '+'}
-            </StyledButton>
+                {adding ? '' : '📝'}
+            </p>
         </StyledNav>
     )
 }

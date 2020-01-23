@@ -17,17 +17,17 @@ const Todo = ({todo}) => {
     
     return (
         <StyledTodo>
-            <p>{todo.completed ? '[✓]' : '[ ]'}</p>
+            <p className="checkbox">{todo.completed ? '☑︎' : '☐'}</p>
             <h3 
             onClick={() => complete(todo.id)} 
             className={todo.completed ? 'cross' : 'not'}>{todo.todo}</h3>
             {todo.completed ? 
-            <StyledButton
-            color="red"
-            onClick={() => deleteTodo(todo.id)}>Delete</StyledButton> :
-            <StyledButton
-            color="darkorange"
-            >Edit</StyledButton>}
+            <p
+            className="edit"
+            onClick={() => deleteTodo(todo.id)}>🗑</p> :
+            <p
+            className="edit"
+            >🖊</p>}
         </StyledTodo>
     )
 }

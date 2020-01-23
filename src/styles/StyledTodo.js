@@ -5,8 +5,16 @@ export const StyledTodo = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    p {
+    .checkbox {
         padding-left: 10px;
+        font-size: 3rem;
+        margin: 0;
+        color: white;
+    }
+    .edit {
+        font-size: 2rem;
+        margin: 0;
+        padding-right: 10px;
     }
 
 `;

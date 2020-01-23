@@ -9,4 +9,9 @@ export const StyledNav = styled.div`
     p {
         padding-left: 15px;
     }
+    .add {
+        font-size: 3.5rem;
+        margin: 0;
+        padding: 5px;
+    }
 `;

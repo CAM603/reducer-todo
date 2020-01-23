@@ -27,7 +27,7 @@ const TodoForm = (props) => {
                 onChange={handleChange}
                 value={item}
                 />
-                <input type="submit"/>
+                <p>'📥'</p>
             </form>
         </StyledTodoForm>
     )
